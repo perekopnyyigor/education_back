@@ -66,6 +66,10 @@ class User
         $this->subscribCours=$database->select("cours","subscrib","WHERE user ='".$this->id."'");
         $this->lesson=$database->select("article","lesson","WHERE user=".$this->id);
     }
+    function lesson()
+    {
+
+    }
 
     function subscrib($id)
     {

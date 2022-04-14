@@ -1,5 +1,8 @@
 <?php
 require_once "../object/article.php";
+require_once "../object/cours.php";
+require_once "../object/chapter.php";
+require_once "../pages/article.php";
 switch ($_GET["action"])
 {
     case "add":
@@ -32,6 +35,35 @@ switch ($_GET["action"])
             $articles[]=new Article($id,false);
         }
         echo json_encode($articles);
+        break;
+    case "article_seo":
+        $article_id=$_GET["id"];
+        $article = new Article($article_id,true);
+
+
+
+        $cours = new Cours($article->cours);
+
+        $chaptersId=$cours->findChapters();
+        //$chapters=[];
+
+
+        for($i=0;$i<count($chaptersId);$i++)
+        {
+            $chapters[$i]= new Chapter($chaptersId[$i]);
+            $articlesId=$chapters[$i]->articlesId;
+            if($articlesId!="" && $articlesId!=null)
+            {
+                for($j=0;$j<count($articlesId);$j++)
+                {
+                    $chapters[$i]->articles[$j]=new Article($articlesId[$j],false);
+                }
+            }
+        }
+
+
+        $page = new PageArticle();
+        $page->main($article,$chapters);
         break;
 
 

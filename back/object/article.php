@@ -119,7 +119,7 @@ class Article
         }
         echo $name_img;
 
-        $file = "<img src=\"img/".$name_img."\">";
+        $file = "<img src=\"https://lern.tiwy.ru/img/".$name_img."\">";
 
         $datadase = new Database();
         $datadase->connect();

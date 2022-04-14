@@ -55,10 +55,16 @@ switch ($_GET["action"])
         break;
     case "get_repeat":
         $user_id=$_POST["user"];
+        $cours_id= $_POST["cours"];
         $user=new User($user_id);
 
         foreach ($user->lesson as $article_id)
-            $lesson[]=new Lesson($user_id,$article_id);
+        {
+            $less=new Lesson($user_id,$article_id);
+            if($less->article->cours==$cours_id)
+                $lesson[]=$less;
+        }
+
 
         echo json_encode($lesson);
 
