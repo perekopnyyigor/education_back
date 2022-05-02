@@ -84,7 +84,7 @@ class PageArticle
 
         $text .= "<div class='name'>tiwy - сайт для создания курсов и конспектов </div>";
         $text .="<ul  class='main_menu'>";
-        $text .="<li  class='main_punkt'><a href='https://lern.tiwy.ru/'>Главная</a></li>";
+        $text .="<li  class='main_punkt'><a href='https://tiwy.ru/'>Главная</a></li>";
         $text .="<li  class='main_punkt' onclick='MainController.cabinet()'>Кабинет</li></ul>";
 
         return $text;
@@ -124,7 +124,7 @@ class PageArticle
         {
             for ($j=0; $j<count($chapters[$i]->articles); $j++)
                 {
-                    $text .="<a href='https://lern.tiwy.ru/back/responze/article.php?action=article_seo&id=".$chapters[$i]->articles[$j]->id."'>";
+                    $text .="<a href='https://tiwy.ru/back/responze/article.php?action=article_seo&id=".$chapters[$i]->articles[$j]->id."'>";
                     $text .="<div class='article_show'>".$chapters[$i]->articles[$j]->name."</div></a>";
                 }
 

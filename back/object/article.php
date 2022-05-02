@@ -119,7 +119,7 @@ class Article
         }
         echo $name_img;
 
-        $file = "<img src=\"https://lern.tiwy.ru/img/".$name_img."\">";
+        $file = "<img src=\"https://tiwy.ru/img/".$name_img."\">";
 
         $datadase = new Database();
         $datadase->connect();
@@ -183,7 +183,7 @@ class Article
     static function findArticle()
     {
         $database = new Database();
-        return $database->select("id","article");
+        return $database->select("id","article","WHERE img IS NOT NULL");
     }
 
 

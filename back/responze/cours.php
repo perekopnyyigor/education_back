@@ -51,6 +51,15 @@ switch ($_GET["action"])
         }
         echo json_encode($cours);
         break;
+    case "find_one_cours":
+            $cours=new Cours($_GET["id"]);
+        echo json_encode($cours);
+        break;
+    case "save_option":
+        $option=$_POST["option"];
+
+        Cours::saveOptions($option);
+        break;
 
 
 
